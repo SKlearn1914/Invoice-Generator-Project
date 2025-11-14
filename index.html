@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invoice Generator</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- jsPDF Library for PDF Export -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <h1>Invoice Generator</h1>
+    </header>
+
+    <!-- INVOICE FORM -->
+    <section class="invoice-section">
+        <div class="invoice-container">
+            <div class="invoice-header">
+                <div>
+                    <label>Invoice Number:</label>
+                    <input type="text" id="invoiceNumber" placeholder="INV-001">
+                </div>
+                <div>
+                    <label>Invoice Date:</label>
+                    <input type="date" id="invoiceDate">
+                </div>
+            </div>
+
+            <div class="invoice-billing">
+                <div>
+                    <label>Bill To:</label>
+                    <input type="text" id="billTo" placeholder="Customer Name">
+                </div>
+                <div>
+                    <label>Bill From:</label>
+                    <input type="text" id="billFrom" placeholder="Your Company">
+                </div>
+            </div>
+
+            <table id="invoiceTable">
+                <thead>
+                    <tr>
+                        <th>Item Description</th>
+                        <th>Quantity</th>
+                        <th>Price</th>
+                        <th>Tax %</th>
+                        <th>Total</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Items will be added dynamically -->
+                </tbody>
+            </table>
+
+            <button id="addItemBtn" class="btn">Add Item</button>
+
+            <div class="invoice-summary">
+                <p>Subtotal: $<span id="subtotal">0.00</span></p>
+                <p>Total Tax: $<span id="totalTax">0.00</span></p>
+                <p><strong>Grand Total: $<span id="grandTotal">0.00</span></strong></p>
+            </div>
+
+            <div class="invoice-buttons">
+                <input type="file" id="importCSV" style="border: none;" accept=".csv" class="btn btn-outline">
+                <button id="printInvoice" class="btn btn-outline">Print Invoice</button>
+                <button id="exportPDF" class="btn btn-outline">Export PDF</button>
+                <button id="exportCSV" class="btn">Export CSV</button>
+                <button id="resetInvoice" class="btn btn-outline">Reset</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2025 Invoice Generator. All Rights Reserved.</p>
+    </footer>
+
+    <!-- JS -->
+    <script src="script.js"></script>
+</body>
+
+</html>
